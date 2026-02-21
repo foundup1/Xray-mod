@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "xraymod",
+  "version": "1.0.0",
+  "name": "XRay Mod",
+  "description": "X-Ray cheat client for Fabric 1.21.4",
+  "authors": ["You"],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.xraymod.client.XRayModClient"
+    ]
+  },
+  "mixins": [
+    "xraymod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": "~1.21.4",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
