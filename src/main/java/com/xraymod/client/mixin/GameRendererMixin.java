@@ -13,8 +13,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(BlockState.class)
 public class GameRendererMixin {
 
-    @Inject(method = "isFullCube", at = @At("RETURN"), cancellable = true)
-    private void xray_isFullCube(BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+    @Inject(method = "isOpaque", at = @At("RETURN"), cancellable = true)
+    private void xray_isOpaque(CallbackInfoReturnable<Boolean> cir) {
         if (XRayModClient.xRayManager.isEnabled()) {
             BlockState state = (BlockState) (Object) this;
             Block block = state.getBlock();
