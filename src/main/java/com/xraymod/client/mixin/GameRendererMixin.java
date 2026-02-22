@@ -13,13 +13,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(BlockState.class)
 public class GameRendererMixin {
 
-    @Inject(method = "isOpaque", at = @At("RETURN"), cancellable = true)
-    private void xray_isOpaque(CallbackInfoReturnable<Boolean> cir) {
+    @Inject(method = "isSideInvisible", at = @At("RETURN"), cancellable = true)
+    private void xray_isSideInvisible(BlockState state, net.minecraft.util.math.Direction direction, CallbackInfoReturnable<Boolean> cir) {
         if (XRayModClient.xRayManager.isEnabled()) {
-            BlockState state = (BlockState) (Object) this;
-            Block block = state.getBlock();
+            BlockState self = (BlockState) (Object) this;
+            Block block = self.getBlock();
             if (XRayModClient.xRayManager.shouldHideBlock(block)) {
-                cir.setReturnValue(true);
+                cir.setReturnValue(false);
             }
         }
     }
