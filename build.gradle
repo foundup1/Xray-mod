@@ -9,17 +9,6 @@ base {
 	archivesName = 'xray-mod'
 }
 
-loom {
-	splitEnvironmentSourceSets()
-
-	mods {
-		"xraymod" {
-			sourceSet sourceSets.main
-			sourceSet sourceSets.client
-		}
-	}
-}
-
 dependencies {
 	minecraft "com.mojang:minecraft:1.21.4"
 	mappings "net.fabricmc:yarn:1.21.4+build.8:v2"
